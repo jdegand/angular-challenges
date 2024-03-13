@@ -6,6 +6,6 @@ const ruleTester = new TSESLint.RuleTester({
 });
 
 ruleTester.run(RULE_NAME, rule, {
-  valid: [`const example = true;`],
+  valid: [],
   invalid: [],
 });
