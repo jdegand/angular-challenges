@@ -30,7 +30,9 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@nrwl/nx/workspace/forbidden-enum": "error"
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
