@@ -53,7 +53,7 @@ export const rule = ESLintUtils.RuleCreator(() => __filename)({
               messageId: 'enumSuggestion',
               data: { enumMembers },
               fix: (fixer): TSESLint.RuleFix => {
-                return fixer.replaceText(enumToString, union);
+                return fixer.replaceText(node, union);
               },
             },
           ],
