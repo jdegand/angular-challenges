@@ -83,18 +83,16 @@ export class UserFormComponent {
   });
 
   submit() {
-    this.userStore.user.update((u) => ({
-      ...u,
-      name: this.form.getRawValue().name,
-      address: {
-        ...u.address,
-        street: this.form.getRawValue().street,
-        zipCode: this.form.getRawValue().zipCode,
-        city: this.form.getRawValue().city,
-      },
-      note: this.form.getRawValue().note,
-      title: this.form.getRawValue().title,
-      salary: this.form.getRawValue().salary,
-    }));
+    // signals are not immutable
+
+    this.userStore.user().name = this.form.getRawValue().name;
+    this.userStore.user().address.street = this.form.getRawValue().street;
+    this.userStore.user().address.zipCode = this.form.getRawValue().zipCode;
+    this.userStore.user().address.city = this.form.getRawValue().city;
+    this.userStore.user().note = this.form.getRawValue().note;
+    this.userStore.user().title = this.form.getRawValue().title;
+    this.userStore.user().salary = this.form.getRawValue().salary;
+
+    console.log(this.userStore.user());
   }
 }
