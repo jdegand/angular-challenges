@@ -13,3 +13,5 @@ export class CurrencyPipe implements PipeTransform {
     return this.currencyService.symbol$.pipe(map((s) => `${price}${s}`));
   }
 }
+
+// perform this inside an effect or computed function

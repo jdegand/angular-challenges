@@ -32,3 +32,11 @@ export class ProductRowComponent {
 
   currencyService = inject(CurrencyService);
 }
+
+/*
+  productInfo = input.required<Product>();
+
+  priceA = computed(()=> this.productInfo().priceA + this.productInfo().currencyCode);
+  priceB = computed(()=> this.productInfo().priceB + this.productInfo().currencyCode);
+  priceC = computed(()=> this.productInfo().priceC + this.productInfo().currencyCode);
+*/
