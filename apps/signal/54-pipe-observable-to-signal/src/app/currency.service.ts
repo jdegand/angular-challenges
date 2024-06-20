@@ -17,6 +17,9 @@ export const currency: Currency[] = [
 
 @Injectable()
 export class CurrencyService {
+  // use the CurrencyService to get the symbol
+  // make currency object a signal?
+
   private code = new BehaviorSubject('EUR');
 
   readonly code$ = this.code.asObservable();

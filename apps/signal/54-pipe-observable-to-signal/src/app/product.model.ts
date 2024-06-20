@@ -14,7 +14,13 @@ export const products: Product[] = [
     priceC: 2200,
     currencyCode: 'USD',
   },
-  { name: 'tent', priceA: 112, priceB: 120, priceC: 41, currencyCode: 'EUR' },
+  {
+    name: 'tent',
+    priceA: 112,
+    priceB: 120,
+    priceC: 41,
+    currencyCode: 'EUR',
+  },
   {
     name: 'sofa',
     priceA: 500,
@@ -36,7 +42,13 @@ export const products: Product[] = [
     priceC: 3500,
     currencyCode: 'GBP',
   },
-  { name: 'mug', priceA: 10, priceB: 15, priceC: 20, currencyCode: 'EUR' },
+  {
+    name: 'mug',
+    priceA: 10,
+    priceB: 15,
+    priceC: 20,
+    currencyCode: 'EUR',
+  },
   {
     name: 'headset',
     priceA: 100,
@@ -44,7 +56,13 @@ export const products: Product[] = [
     priceC: 220,
     currencyCode: 'CAD',
   },
-  { name: 'cable', priceA: 5, priceB: 10, priceC: 15, currencyCode: 'EUR' },
+  {
+    name: 'cable',
+    priceA: 5,
+    priceB: 10,
+    priceC: 15,
+    currencyCode: 'EUR',
+  },
   {
     name: 'table',
     priceA: 100,
