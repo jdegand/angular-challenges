@@ -2,10 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   computed,
-  inject,
   input,
 } from '@angular/core';
-import { CurrencyService } from './currency.service';
+import { currency } from './currency.service';
 import { Product } from './product.model';
 
 @Component({
@@ -16,18 +15,26 @@ import { Product } from './product.model';
     <td>{{ product().priceA }}</td>
     <td>{{ product().priceB }}</td>
     <td>{{ product().priceC }}</td>
-    <td>{{ priceA() }}</td>
+    <td>{{ priceWithSymbol() }}</td>
   `,
   imports: [],
-  providers: [CurrencyService],
+  providers: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductRowComponent {
-  currencyService = inject(CurrencyService);
+  // you really don't need a CurrencyService or the pipes
+  // computed and the currency object should be enough
 
   product = input.required<Product>();
 
+  // there may be problem using &nbsp; inside signals
   priceA = computed(() => this.product().priceA + this.product().currencyCode);
   priceB = computed(() => this.product().priceB + this.product().currencyCode);
   priceC = computed(() => this.product().priceC + this.product().currencyCode);
+  priceWithSymbol = computed(() => this.product().priceC + ' ' + this.symbol());
+
+  symbol = computed(() => {
+    const code = this.product().currencyCode;
+    return currency.find((c) => c.code === code)?.symbol ?? code;
+  });
 }
