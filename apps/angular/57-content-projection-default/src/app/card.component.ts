@@ -6,14 +6,10 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   standalone: true,
   imports: [NgIf],
   template: `
-    <div>
-      <ng-content select="[card-title]"></ng-content>
-    </div>
-    <div>
-      <ng-content select="[card-message]">
-        <div>Aucun message</div>
-      </ng-content>
-    </div>
+    <ng-content select="[card-title]"></ng-content>
+    <ng-content select="[card-message]">
+      <div>Aucun message</div>
+    </ng-content>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
