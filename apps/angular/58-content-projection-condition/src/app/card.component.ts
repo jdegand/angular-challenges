@@ -1,19 +1,33 @@
+import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-card',
+  imports: [NgIf, NgTemplateOutlet],
   template: `
-    @if (small()) {
-      <ng-content select="[title]" />
-      <ng-content select="[message]" />
-    } @else {
+    <ng-container *ngIf="small(); else largerTemplate">
+      <ng-container>
+        <ng-container *ngTemplateOutlet="titleTemplate"></ng-container>
+        <ng-container *ngTemplateOutlet="messageTemplate"></ng-container>
+      </ng-container>
+    </ng-container>
+
+    <ng-template #largerTemplate>
       <div class="p-4">
         <div class="text-2xl">
-          <ng-content select="[title]" />
+          <ng-container *ngTemplateOutlet="titleTemplate"></ng-container>
         </div>
-        <ng-content select="[message]" />
+        <ng-container *ngTemplateOutlet="messageTemplate"></ng-container>
       </div>
-    }
+    </ng-template>
+
+    <ng-template #titleTemplate>
+      <div title>Your Title Here</div>
+    </ng-template>
+
+    <ng-template #messageTemplate>
+      <div message>Your Message Here</div>
+    </ng-template>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
